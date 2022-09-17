@@ -17,6 +17,7 @@ public class ListWithStreamApi {
         students.add(new Student(105, "Rahul", 11));
         students.add(new Student(101, "Jia", 5));
         Collections.sort(students, (s1, s2) -> s1.getRollNo() - s2.getRollNo());
+//        Collections.sort(students);
 //        students.forEach(s -> System.out.println(s));
         Collections.sort(students, (s1, s2) -> s1.getName().compareTo(s2.getName()));
         students.forEach(s -> System.out.println(s));
@@ -39,6 +40,9 @@ public class ListWithStreamApi {
             return name + s.getName();
         }).collect(Collectors.toList());
         System.out.println(nameList);
+
+        List<Student> higherStudents =students.stream().filter(s -> s.getStd() > 5).collect(Collectors.toList());
+        System.out.println(higherStudents);
 
     }
 }
